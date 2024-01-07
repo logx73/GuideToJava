@@ -2,6 +2,7 @@ package Prtaice;
 
 public final class Singleton {
     private static volatile Singleton singleton = null;
+    private static Object newObj = new Object();
     private Singleton(){
 
     }
@@ -11,7 +12,7 @@ public final class Singleton {
             return singleton;
         }
 
-      synchronized(new Object()){
+      synchronized(newObj){
           if(singleton == null){
               return new Singleton();
           }
